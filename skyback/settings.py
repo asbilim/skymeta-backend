@@ -38,6 +38,11 @@ INSTALLED_APPS = [
     'blog'
 ]
 
+
+MEDIA_URL = '/skyleta/media/'
+
+STATIC_ROOT = os.path.join(BASE_DIR,'staticfiles')
+
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     "corsheaders.middleware.CorsMiddleware",
