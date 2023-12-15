@@ -5,7 +5,8 @@ from django.contrib.auth import get_user_model
 from django.template.defaultfilters import slugify
 from ckeditor.fields import RichTextField
 from cloudinary.models import CloudinaryField
-from django_ckeditor_5.fields import CKEditor5Field
+
+from ckeditor_uploader.fields import RichTextUploadingField
 
 User = get_user_model()
 
@@ -45,8 +46,8 @@ class Article(models.Model):
     image = models.ImageField(upload_to="blog-images/",null=True,blank=True)
     title = models.CharField(max_length=500)
     date = models.DateTimeField(auto_now_add=True)
-    intro = CKEditor5Field('intro', config_name='extends')
-    body = CKEditor5Field('body', config_name='extends')
+    intro = RichTextUploadingField('intro', config_name='extends')
+    body = RichTextUploadingField('body', config_name='extends')
     slug = models.SlugField(max_length=255, unique=True, blank=True, null=True)
     
 
